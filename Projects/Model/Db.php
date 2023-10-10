@@ -63,14 +63,18 @@ class Db
 
     }
 
-    static function Select()
+    static function Select($sql,$datas)
     {
-
+        $rq = self::$db->prepare($sql);
+        $rq->execute($datas);
+        return $rq->fetchAll();
     }
 
-    static function Sql()
+    static function Sql($sql,$datas)
     {
-
+        $rq = self::$db->prepare($sql);
+        $rq->execute($datas);
+        return $rq->fetchAll();
     }
 
 }

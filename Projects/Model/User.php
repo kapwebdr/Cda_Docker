@@ -9,9 +9,7 @@ class User extends Db
     
     public function getUsers()
     {
-        $rq = self::$db->prepare('Select * from ...');
-        $rq->execute($this->datas);
-        return $rq->fetchAll();
+        return Db::Select('Select * from ...',[]);
     }
 }
 
