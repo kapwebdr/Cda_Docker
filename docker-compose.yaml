@@ -12,8 +12,7 @@ services:
       - ./nginx/:/etc/nginx/conf.d/
     ports:
       - 8000:80
-      - 8001:81
-
+    
   php:
     build:
       context: .
@@ -31,9 +30,9 @@ services:
     image: mariadb:latest
     container_name: docker_mariadb
     environment:
-      - MARIADB_ROOT_PASSWORD=cdaweb
+      - MARIADB_ROOT_PASSWORD=${MARIA_DB_ROOT_PWD}
       - MARIADB_USER=cdaweb
-      - MARIADB_PASSWORD=cdaweb  
+      - MARIADB_PASSWORD=${MARIA_DB_USER_PWD} 
     volumes:
       - ./db/:/var/lib/mysql/
       

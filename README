@@ -1,2 +1,6 @@
 CDA / Docker + Php Objet + Light Framework.
 By Kapweb.
+
+Create an .env file in root folder that contain (example) : 
+MARIA_DB_ROOT_PWD=cdaweb
+MARIADB_PASSWORD=cdaweb
