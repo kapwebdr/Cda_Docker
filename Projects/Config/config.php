@@ -7,16 +7,25 @@ define('DIR_VIEW',DIR_BASE.'View/');
 define('DIR_PRIVATE',DIR_BASE.'Private/');
 define('DIR_PUBLIC',DIR_BASE.'Public/');
 
-define('BASE_HREF','/');
-
-define('DB_HOST','mariadb');
-define('DB_PORT',3006);
-define('DB_NAME','cdaweb');
-define('DB_USER','root');
-define('DB_PASSWORD','cdaweb');
-
 /* Avec Composer Autoload */
 require_once DIR_BASE.'vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(DIR_BASE);
+$dotenv->safeLoad();
+
+set_error_handler(['\Controller\App_Exceptions', 'PhpErrors'], E_ALL);
+register_shutdown_function(['\Controller\App_Exceptions', 'PhpFatalErrors']);
+
+ini_set( "display_errors", "off" );
+error_reporting( E_ALL );
+
+define('BASE_HREF','/');
+
+define('DB_HOST',$_ENV['DB_HOST']);
+define('DB_PORT',$_ENV['DB_PORT']);
+define('DB_NAME',$_ENV['DB_NAME']);
+define('DB_USER',$_ENV['DB_USER']);
+define('DB_PASSWORD',$_ENV['DB_PASSWORD']);
+
 require_once DIR_CONFIG.'routes.php';
 
 ?>
