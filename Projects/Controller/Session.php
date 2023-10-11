@@ -10,18 +10,19 @@ class Session
         session_start();
         self::$id = session_id();
         self::$content = $_SESSION;
+        // $_SESSION['user'] = ['name'=>'Damien','rights'=>'admin'];
     } 
     static public function getId():string
     {
-        return self::$id;
+        return self::$id; // echo Session::getId();
     }
     static public function Get($var)
     {
-        return self::$content[$var];
+        return self::$content[$var]; // echo Session::Get('user');
     }
     static public function Set($var,$value=null):void
     {
-        self::$content[$var] = $value;
+        self::$content[$var] = $value; // echo Session::Get('user');
     }
     static public function Save():void
     {

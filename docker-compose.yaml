@@ -31,7 +31,7 @@ services:
     container_name: docker_mariadb
     environment:
       - MARIADB_ROOT_PASSWORD=${MARIA_DB_ROOT_PWD}
-      - MARIADB_USER=cdaweb
+      - MARIADB_USER=${MARIADB_USER}
       - MARIADB_PASSWORD=${MARIA_DB_USER_PWD} 
     volumes:
       - ./db/:/var/lib/mysql/

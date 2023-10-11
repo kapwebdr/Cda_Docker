@@ -3,7 +3,7 @@ namespace Controller;
 
 //use Controller\Session;
 use Model\Db;
-
+use Controller\App_Exceptions;
 class Main
 {
     static function Route($routes)
@@ -28,11 +28,11 @@ class Main
         $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
         switch ($routeInfo[0]) {
             case \FastRoute\Dispatcher::NOT_FOUND:
-                echo ' ... 404 Not Found';
+                App_Exceptions::RouteErrors('404','404 Not Found',$_SERVER['REQUEST_URI']);
                 break;
             case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
                 $allowedMethods = $routeInfo[1];
-                echo ' ... 405 Method Not Allowed';
+                App_Exceptions::RouteErrors('405','405 Method Allowed',$_SERVER['REQUEST_URI']);
                 break;
             case \FastRoute\Dispatcher::FOUND:
                 $handler    = $routeInfo[1];

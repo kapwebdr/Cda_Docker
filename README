@@ -5,7 +5,7 @@ Create an .env file in root folder that contain (example) :
 MARIA_DB_ROOT_PWD=cdaweb
 MARIA_DB_USER_PWD=cdaweb
 
-Create an .env file in Project folder that contain (example) : 
+Create an .env file in Projects folder that contain (example) : 
 DB_HOST=mariadb
 DB_PORT=3006
 DB_NAME=cdaweb

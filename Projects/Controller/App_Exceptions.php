@@ -31,7 +31,7 @@ class App_Exceptions extends Exception
 			case E_NOTICE :
 			{
 			    $Action['exit'] 	= false;
-			    $Action['display'] 	= false;
+			    $Action['display'] 	= true;
 			    $Action['notify'] 	= true;
 			    $Action['type'] 	= "Notification (".$errno.")";
 				break;
@@ -44,7 +44,7 @@ class App_Exceptions extends Exception
 			case E_USER_DEPRECATED :
 			{
 			    $Action['exit'] 	= false;
-			    $Action['display'] 	= false;
+			    $Action['display'] 	= true;
 			    $Action['notify'] 	= false;
 			    $Action['type'] 	= "Avertissement (".$errno.")";
 			    break;
@@ -52,7 +52,7 @@ class App_Exceptions extends Exception
 			case E_PARSE :
 			{
 			   	$Action['exit'] 	= true;
-			    $Action['display'] 	= false;
+			    $Action['display'] 	= true;
 			    $Action['notify'] 	= true;
 			    $Action['type'] 	= "Syntaxe (".$errno.")";
 			    break;
@@ -63,7 +63,7 @@ class App_Exceptions extends Exception
 			case E_ERROR :
 			{
 			   	$Action['exit'] 	= true;
-			    $Action['display'] 	= false;
+			    $Action['display'] 	= true;
 			    $Action['notify'] 	= true;
 			    $Action['type'] 	= "Erreur Fatale (".$errno.")";
 			    break;
@@ -71,16 +71,20 @@ class App_Exceptions extends Exception
 			default :
 			{
 			    $Action['exit'] 	= false;
-			    $Action['display'] 	= false;
+			    $Action['display'] 	= true;
 			    $Action['notify'] 	= true;
 			    $Action['type'] 	= "Erreur inconnue (".$errno.")";
 			    break;
 			}
 	    }
 	    
-	    if($Action['notify'] === true)
+	    if($Action['display'] === true)
 	    {
 		    echo $Action['type'].'['.$errno.' : '.$errstr.' : '.$errfile.' :: '.$errline.']<br/><br/>';
+		}
+		if($Action['notify'] === true)
+	    {
+			// Exemple, envoie de mail etc...
 		}
 	    if($Action['exit'] === true)
 	    {
