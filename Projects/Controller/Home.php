@@ -1,7 +1,7 @@
 <?php
 namespace Controller;
 
-//use Model\User;
+use Model\User;
 use Controller\View;
 
 class Home extends Main
@@ -12,8 +12,14 @@ class Home extends Main
         // $User->nom      = 'RICHARD';
         // $User->prenom   = 'Damien';
         // $User->Save();
+
+        $User           = new User();
+        $Users          = $User->Find('Select * from user order by nom',[]);
+
         View::Set('title','Titre de la page');
         View::Set('h1','Bonjour le monde !!');
+        View::Set('users',$Users);
+        
         View::Display('Home');
     }
     public function Test($params=[])

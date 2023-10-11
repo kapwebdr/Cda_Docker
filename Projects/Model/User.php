@@ -9,7 +9,7 @@ class User extends Db
     
     public function getUsers()
     {
-        return Db::Select('Select * from ...',[]);
+        return Db::Find('Select * from ...',[]);
     }
 }
 
