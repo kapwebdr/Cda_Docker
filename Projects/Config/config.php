@@ -4,6 +4,7 @@ define('DIR_CONFIG',DIR_BASE.'Config/');
 define('DIR_CONTROLLER',DIR_BASE.'Controller/');
 define('DIR_MODEL',DIR_BASE.'Model/');
 define('DIR_VIEW',DIR_BASE.'View/');
+define('DIR_PRIVATE',DIR_BASE.'Private/');
 define('DIR_PUBLIC',DIR_BASE.'Public/');
 
 define('BASE_HREF','/');

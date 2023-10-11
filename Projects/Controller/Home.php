@@ -16,6 +16,14 @@ class Home extends Main
         $User           = new User();
         $Users          = $User->Find('Select * from user order by nom',[]);
 
+        View::Init('php');
+        View::Set('title','Titre de la page');
+        View::Set('h1','Bonjour le monde !!');
+        View::Set('users',$Users);
+        
+        View::Display('Home');
+
+        View::Init('smarty');
         View::Set('title','Titre de la page');
         View::Set('h1','Bonjour le monde !!');
         View::Set('users',$Users);
