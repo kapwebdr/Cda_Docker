@@ -6,10 +6,10 @@
         <td>Nom</td>
         <td>Prénom</td>
     </tr>
-{foreach key=k item=line from=$users}
+{foreach key=k item=user from=$users}
     <tr>
-        <td>{$line['nom']}</td>
-        <td>{$line['prenom']}</td>
+        <td>{$key} - {$user['nom']}</td>
+        <td>{$user['prenom']}</td>
     </tr>
 {/foreach}
 </table>
