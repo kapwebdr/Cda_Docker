@@ -20,22 +20,18 @@ class Home extends Main
         View::Set('title','Titre de la page');
         View::Set('h1','Bonjour le monde !!');
         View::Set('users',$Users);
-        
         View::Display('Home');
 
         View::Init('smarty');
         View::Set('title','Titre de la page');
         View::Set('h1','Bonjour le monde !!');
         View::Set('users',$Users);
-        
         View::Display('Home');
-
 
         View::Init('twig');
         View::Set('title','Titre de la page');
         View::Set('h1','Bonjour le monde !!');
         View::Set('users',$Users);
-        
         View::Display('Home');
     }
     public function Test($params=[])
