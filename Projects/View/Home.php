@@ -1,7 +1,7 @@
 <?php require_once(DIR_VIEW.'Header.php'); ?>
 
 <h1>
-    <?= Controller\View::Get('h1'); ?>
+Php =::= <?= Controller\View::Get('h1'); ?>
 </h1>
 
 <table border="1" width="100%">

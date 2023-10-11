@@ -6,12 +6,12 @@ class View
 {
     static array $vars = [];
     static object $tplMotor;
-
     static string $motor='smarty';
 
-    static public function Init(string $motor)
+    static public function Init(string $motor=null)
     {
-        self::$motor = $motor;
+        if(!is_null($motor))
+            self::$motor = $motor;
         
         switch(self::$motor) 
         {
@@ -24,6 +24,7 @@ class View
             case 'php':
                 break;
             case 'twig':
+                self::$tplMotor = new \Twig\Loader\FilesystemLoader(DIR_VIEW);
                 break;
         }
     }
@@ -40,6 +41,7 @@ class View
                 self::$vars[$var] = $value;
                 break;
             case 'twig':
+                self::$vars[$var] = $value;
                 break;
         }
        
@@ -71,11 +73,11 @@ class View
                 require_once(DIR_VIEW.$view.'.php');
                 break;
             case 'twig':
+                $twig = new \Twig\Environment(self::$tplMotor);
+                echo $twig->render($view.'.html',self::$vars);
                 break;
         }
     }
-
-
 }
 
 ?>

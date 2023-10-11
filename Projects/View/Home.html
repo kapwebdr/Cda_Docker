@@ -1,0 +1,19 @@
+{% include "header.html" %}
+<h1>Twig =::= {{ title }}</h1>
+
+<table border="1" width="100%">
+    <tr style="background:gray;color:white;font-weight:bold;">
+        <td>Nom</td>
+        <td>Prénom</td>
+    </tr>
+{% for user in users %}
+    <tr>
+        <td>{{ user.nom }}</td>
+        <td>{{ user.prenom }}</td>
+    </tr>
+{% else %}
+    No users have been found.
+{% endfor %}
+</table>
+
+{% include "footer.html" %}
