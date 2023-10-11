@@ -63,18 +63,18 @@ class Db
 
     }
 
-    static function Select($sql,$datas)
+    static function Find($sql,$datas)
     {
         $rq = self::$db->prepare($sql);
         $rq->execute($datas);
         return $rq->fetchAll();
     }
 
-    static function Sql($sql,$datas)
+    static function FindOne($sql,$datas)
     {
         $rq = self::$db->prepare($sql);
         $rq->execute($datas);
-        return $rq->fetchAll();
+        return $rq->fetch();
     }
 
 }
