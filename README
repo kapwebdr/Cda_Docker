@@ -12,8 +12,13 @@ DB_NAME=cdaweb
 DB_USER=root
 DB_PASSWORD=cdaweb
 
+**Mysql**
+A dump folder is here, put your sql file in, if you want to restore your backup.
+
 To start the framework : 
 - docker compose up -d
+
+If you need to install other libraries via composer : 
 - docker exec -it docker_php /bin/sh
 - composer install
 
