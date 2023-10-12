@@ -1,4 +1,4 @@
-<?php require_once(DIR_VIEW.'Header.php'); ?>
+<?php require_once(__DIR__.'/Header.php'); ?>
 
 <h1>
 Php =::= <?= Controller\View::Get('h1'); ?>
@@ -21,4 +21,4 @@ foreach(Controller\View::Get('users') as $user)
 ?>
 </table>
 
-<?php require_once(DIR_VIEW.'Footer.php'); ?>
+<?php require_once(__DIR__.'/Footer.php'); ?>
