@@ -21,7 +21,7 @@ services:
     volumes:
       - ./Projects:/var/www/html/
     tmpfs: /tmp
-    command: sh -c "composer install --ignore-platform-reqs"
+    #command: sh -c "composer install --ignore-platform-reqs"
     depends_on:
       - mariadb
     links:
