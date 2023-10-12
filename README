@@ -12,7 +12,7 @@ DB_NAME=cdaweb
 DB_USER=root
 DB_PASSWORD=cdaweb
 
-**Mysql**
+### Mysql
 A dump folder is here, put your sql file in, if you want to restore your backup.
 
 To start the framework : 
