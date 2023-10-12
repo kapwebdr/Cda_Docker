@@ -17,14 +17,14 @@ class View
         {
             case 'smarty':
                 self::$tplMotor  = new \Smarty();
-                self::$tplMotor->setTemplateDir(DIR_VIEW);
+                self::$tplMotor->setTemplateDir(DIR_VIEW.'smarty/');
                 self::$tplMotor->setCompileDir(DIR_PRIVATE.'templates_c/');
                 self::$tplMotor->setCacheDir(DIR_PRIVATE.'cache_c/');
                 break;
             case 'php':
                 break;
             case 'twig':
-                self::$tplMotor = new \Twig\Loader\FilesystemLoader(DIR_VIEW);
+                self::$tplMotor = new \Twig\Loader\FilesystemLoader(DIR_VIEW.'twig/');
                 break;
         }
     }
@@ -70,7 +70,7 @@ class View
                 self::$tplMotor->display($view.'.tpl');
                 break;
             case 'php':
-                require_once(DIR_VIEW.$view.'.php');
+                require_once(DIR_VIEW.'php/'.$view.'.php');
                 break;
             case 'twig':
                 $twig = new \Twig\Environment(self::$tplMotor);
