@@ -4,9 +4,9 @@ $routes = [
         'method'=>['GET'],
         'controller'=>['Controller\Home','Index']
     ],
-    '/test[/{id:\d+}]' => [
+    '/produit/{id:\d+}' => [
         'method'=>['GET'],
-        'controller'=>['Controller\Home','Test']
+        'controller'=>['Controller\Produit','getProduit']
     ]
 ];
 ?>

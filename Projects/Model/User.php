@@ -11,6 +11,7 @@ class User extends Db
     {
         return Db::Find('Select * from ...',[]);
     }
+
 }
 
 ?>

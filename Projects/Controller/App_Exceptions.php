@@ -2,20 +2,34 @@
 namespace Controller;
 use Exception;
 
+use Controller\Session;
 class App_Exceptions extends Exception
 {
+	static private $userError = [];
+
+	static function setUserError($error,$level='warning')
+	{
+		self::$userError[] = ['error'=>$error,'level'=>$level,'date'=>time()];
+	}
+	static function getUserError()
+	{
+		return self::$userError;
+	}
+
+	static function saveUserError()
+	{
+		Session::Set('UserError',self::$userError);
+	}
     public function __construct(string $message='',int $code=0,$previous=null)
     {
         parent::__construct($message, $code, $previous);
     }
-
     static function PhpFatalErrors()
 	{
 		$lastError = error_get_last();
 		if(!is_null($lastError))
         static::PhpErrors($lastError['type'],$lastError['message'],$lastError['file'],$lastError['line']);
     }
-    
 	/* It's a function that will be called when a PHP error occurs. */
 	static function PhpErrors($errno,$errstr,$errfile,$errline)
 	{
@@ -91,7 +105,6 @@ class App_Exceptions extends Exception
 		    exit();
 		}
 	}
-
 	static function RouteErrors($errno,$errstr,$errurl)
 	{
 		// A modifier par vous même.
